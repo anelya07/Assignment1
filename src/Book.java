@@ -1,14 +1,16 @@
 public class Book {
-    public String title;
-    public String author;
-    public int year;
-    public String genre;
+    private String title;
+    private String author;
+    private String genre;
 
-    public Book(String title, String author, int year, String genre) {
+    public Book(String title, String author, String genre) {
         this.title = title;
         this.author = author;
-        this.year = year;
         this.genre = genre;
+    }
+
+    public void printBook() {
+        System.out.println("Title: " + title + " by " + author + " in the genre of "  + genre);
     }
 
     public String getTitle() {
@@ -25,14 +27,6 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 
     public String getGenre() {
