@@ -36,16 +36,21 @@ public class Library {
     public void getInfo(){
         System.out.println("Library Name: " + libraryName);
         System.out.println("Address: " + address);
+        System.out.println("Number of Books: " + numberOfBooks);
     }
 
-    public void addBook(){
-        System.out.println("Adding Book");
-        numberOfBooks++;
+    public void addBook(int amount){
+        System.out.println("Adding " + amount + " books!");
+        numberOfBooks += amount;
+        System.out.println("Total: " + numberOfBooks);
     }
 
-    public void returnBook(){
-        System.out.println("Returning Book");
-        numberOfBooks--;
+    public void removeBook(int amount){
+        System.out.println("Removing " + amount + " books!");
+        if(numberOfBooks >= amount){
+            numberOfBooks -= amount;
+            System.out.println("Total: " + numberOfBooks);
+        }
     }
 }
 

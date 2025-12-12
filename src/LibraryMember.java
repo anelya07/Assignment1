@@ -4,7 +4,7 @@ public class LibraryMember {
     private int memberID;
     private int borrowedBooks;
 
-    public LibraryMember(String name, String phone, int memberID, int borrowedBooks) {
+    public LibraryMember(String name, String phone, int memberID) {
         this.name = name;
         this.phone = phone;
         this.memberID = memberID;
@@ -44,18 +44,16 @@ public class LibraryMember {
     }
 
     public void getInfo(){
-        System.out.println("Name: " + name);
-        System.out.println("MemberID: " + memberID);
-        System.out.println("Borrowed books: " + borrowedBooks);
+        System.out.println("Name: " + name + "; " + "MemberID: " + memberID + "; " + "Borrowed books: " + borrowedBooks);
     }
 
     public void borrowBook(){
-        System.out.println("Borrowing Book");
+        System.out.println(name + " borrowing book!");
         borrowedBooks++;
     }
 
     public void returnBook(){
-        System.out.println("Returning Book");
+        System.out.println(name + " returning book!");
         borrowedBooks--;
     }
 }

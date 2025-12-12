@@ -10,7 +10,7 @@ public class Book {
     }
 
     public void printBook() {
-        System.out.println("Title: " + title + " by " + author + " in the genre of "  + genre);
+        System.out.println("Book: " + title + " by " + author + " in the genre of "  + genre);
     }
 
     public String getTitle() {
