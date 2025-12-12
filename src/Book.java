@@ -9,7 +9,7 @@ public class Book {
         this.genre = genre;
     }
 
-    public void printBook() {
+    public void getInfo() {
         System.out.println("Book: " + title + " by " + author + " in the genre of "  + genre);
     }
 

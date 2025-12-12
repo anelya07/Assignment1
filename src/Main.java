@@ -3,16 +3,18 @@ public class Main {
     public static void main(String[] args) {
         Book b1 = new Book("Harry Potter", "J.K.Rowling", "Fantasy");
         Book b2 = new Book("Sherlock Holmes", "Arthur Conan Doyle", "Detective fiction");
-        Book b3 = new Book("The Little Prince", "Antoine de Saint-Exupéry", "???");
+        Book b3 = new Book("The Lord of the Rings", "J.R.R. Tolkien", "???");
 
-        b1.printBook();
-        b2.printBook();
-        b3.printBook();
+        b1.getInfo();
+        b2.getInfo();
+        b3.getInfo();
 
         System.out.println("--- Genre entered for book 3: ---");
         System.out.println("Current genre: " + b3.getGenre());
-        b3.setGenre("Philosophical tale");
-        b3.printBook();
+        b3.setGenre("Fantasy");
+        b3.getInfo();
+
+        System.out.println("   Same genre? " + b1.getGenre().equals(b3.getGenre()));
 
         System.out.println("----------------------------------------------------------");
         LibraryMember m1 = new LibraryMember("Anelya", "+7 746 246 4565", 77);
@@ -24,6 +26,8 @@ public class Main {
         m1.returnBook();
         m1.getInfo();
         m2.getInfo();
+
+        System.out.println("   Same memberID? " + (m1.getMemberID() == m2.getMemberID()));
 
         System.out.println("----------------------------------------------------------");
 
