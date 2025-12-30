@@ -40,13 +40,13 @@ public class Library {
     }
 
     public void addBook(int amount){
-        System.out.println("Adding " + amount + " books!");
+        System.out.println("Adding " + amount + " books");
         numberOfBooks += amount;
         System.out.println("Total: " + numberOfBooks);
     }
 
     public void removeBook(int amount){
-        System.out.println("Removing " + amount + " books!");
+        System.out.println("Removing " + amount + " books");
         if(numberOfBooks >= amount){
             numberOfBooks -= amount;
             System.out.println("Total: " + numberOfBooks);
