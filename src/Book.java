@@ -1,7 +1,10 @@
+
+
 public class Book {
     private String title;
     private String author;
     private String genre;
+    private boolean available = true;
 
     public Book(String title, String author, String genre) {
         this.title = title;
@@ -9,8 +12,9 @@ public class Book {
         this.genre = genre;
     }
 
-    public void getInfo() {
-        System.out.println("Book: " + title + " by " + author + " in the genre of "  + genre);
+    @Override
+    public String toString() {
+        return title + " by " + author +  " in the genre of "  + genre;
     }
 
     public String getTitle() {
@@ -35,6 +39,14 @@ public class Book {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 }
 

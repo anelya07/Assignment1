@@ -1,12 +1,9 @@
-public class LibraryMember {
-    private String name;
-    private String phone;
+public class LibraryMember extends Person {
     private int memberID;
     private int borrowedBooks;
 
     public LibraryMember(String name, String phone, int memberID) {
-        this.name = name;
-        this.phone = phone;
+        super(name, phone);
         this.memberID = memberID;
         this.borrowedBooks = 0;
     }
@@ -43,6 +40,7 @@ public class LibraryMember {
         this.borrowedBooks = borrowedBooks;
     }
 
+    @Override
     public void getInfo(){
         System.out.println("Name: " + name + "; " + "MemberID: " + memberID + "; " + "Borrowed books: " + borrowedBooks);
     }
