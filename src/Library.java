@@ -1,12 +1,17 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+
 public class Library {
     private String libraryName;
     private String address;
     private int numberOfBooks;
+    private ArrayList<Book> books;
 
     public Library(String libraryName, String address, int numberOfBooks) {
         this.libraryName = libraryName;
         this.address = address;
         this.numberOfBooks = numberOfBooks;
+        this.books = new ArrayList<>();
     }
 
     public String getLibraryName() {
@@ -39,18 +44,46 @@ public class Library {
         System.out.println("Number of Books: " + numberOfBooks);
     }
 
-    public void addBook(int amount){
-        System.out.println("Adding " + amount + " books");
-        numberOfBooks += amount;
-        System.out.println("Total: " + numberOfBooks);
+    public void addBook(Book book){
+        books.add(book);
+        System.out.println("Book added: " + book.getTitle());
     }
 
-    public void removeBook(int amount){
-        System.out.println("Removing " + amount + " books");
-        if(numberOfBooks >= amount){
-            numberOfBooks -= amount;
-            System.out.println("Total: " + numberOfBooks);
+    public void removeBook(Book book){
+        if(books.remove(book)){
+            System.out.println("Book removed: " + book.getTitle());
+        }
+        else {
+            System.out.println("Book not found!");
         }
     }
+
+    public void showAllBooks() {
+        for (Book b : books) {
+            System.out.println(b);
+        }
+    }
+
+    public Book findByTitle(String title){
+        for(Book b : books){
+            if(b.getTitle().equalsIgnoreCase(title)){
+                return b;
+            }
+        }
+        return null;
+    }
+
+    public void filterByGenre(String genre){
+        for(Book b : books){
+            if(b.getGenre().equalsIgnoreCase(genre)){
+                System.out.println(b);
+            }
+        }
+    }
+
+    public void sortByTitle(){
+        books.sort(Comparator.comparing(Book::getTitle));
+    }
+
 }
 
