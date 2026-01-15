@@ -1,3 +1,5 @@
+package entity;
+
 public class LibraryMember extends Person {
     private int memberID;
     private int borrowedBooks;
@@ -45,13 +47,4 @@ public class LibraryMember extends Person {
         System.out.println("Name: " + name + "; " + "MemberID: " + memberID + "; " + "Borrowed books: " + borrowedBooks);
     }
 
-    public void borrowBook(){
-        System.out.println(name + " borrowing book!");
-        borrowedBooks++;
-    }
-
-    public void returnBook(){
-        System.out.println(name + " returning book!");
-        borrowedBooks--;
-    }
 }

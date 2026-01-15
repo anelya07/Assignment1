@@ -1,3 +1,5 @@
+package entity;
+
 import java.util.Objects;
 
 public class Book {
@@ -62,4 +64,5 @@ public class Book {
         this.available = available;
     }
 }
+
 
