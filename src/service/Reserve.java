@@ -3,15 +3,9 @@ package service;
 import entity.Book;
 
 public class Reserve implements BookService {
-    private Book book;
-
-    public Reserve(Book book) {
-        this.book = book;
-    }
-
-    public void reserve() {
-        if (!book.getAvailable()) {
-            book.setAvailable(true);
+    public void reserve(Book book) {
+        if (book.getAvailable()) {
+            book.setAvailable(false);
             process(true);
         }
         else {
@@ -25,7 +19,7 @@ public class Reserve implements BookService {
             System.out.println("Book reserved.");
         }
         else {
-            System.out.println("Book already reserved.");
+            System.out.println("Book is not available.");
         }
     }
 }

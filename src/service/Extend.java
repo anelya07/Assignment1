@@ -5,10 +5,10 @@ public class Extend implements BookService {
     @Override
     public void process(boolean status) {
         if (status) {
-            System.out.println("Loan period successfully extended.");
+            System.out.println("Loan extended.");
         }
         else {
-            System.out.println("Extension failed: no active loan found.");
+            System.out.println("No active loans.");
         }
     }
 }

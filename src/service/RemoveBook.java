@@ -4,15 +4,7 @@ import entity.Book;
 import entity.Library;
 
 public class RemoveBook implements BookService {
-    private Library library;
-    private Book book;
-
-    public RemoveBook(Library library, Book book) {
-        this.library = library;
-        this.book = book;
-    }
-
-    public void remove() {
+    public void remove(Library library, Book book) {
         library.getBooks().remove(book);
         process(true);
     }

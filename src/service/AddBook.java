@@ -4,16 +4,7 @@ import entity.Book;
 import entity.Library;
 
 public class AddBook implements BookService {
-
-    private Library library;
-    private Book book;
-
-    public AddBook(Library library, Book book) {
-        this.library = library;
-        this.book = book;
-    }
-
-    public void add() {
+    public void add(Library library, Book book) {
         library.getBooks().add(book);
         process(true);
     }
