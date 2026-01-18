@@ -3,15 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>852</IntrospectionStateNumber>
+      <IntrospectionStateNumber>862</IntrospectionStateNumber>
       <ServerVersion>18.1</ServerVersion>
       <StartupTime>1768403170</StartupTime>
       <TimeZones>true ACDT
@@ -809,7 +801,7 @@ false Zulu
 14860||10|C|G
 14860||-9223372036854775808|U|G
 14860||10|U|G</Grants>
-      <IntrospectionStateNumber>852</IntrospectionStateNumber>
+      <IntrospectionStateNumber>862</IntrospectionStateNumber>
       <ObjectId>16843</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4330,73 +4322,210 @@ false Zulu
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <LastIntrospectionL1Xid>852</LastIntrospectionL1Xid>
-      <LastIntrospectionL2Xid>852</LastIntrospectionL2Xid>
-      <LastIntrospectionL3Xid>852</LastIntrospectionL3Xid>
+      <LastIntrospectionL1Xid>862</LastIntrospectionL1Xid>
+      <LastIntrospectionL2Xid>862</LastIntrospectionL2Xid>
+      <LastIntrospectionL3Xid>862</LastIntrospectionL3Xid>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2026-01-15.10:51:51</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-01-18.11:34:50</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>546</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <sequence id="273" parent="272" name="users_id_seq">
+    <sequence id="273" parent="272" name="books_id_seq">
       <DetailsLevel>2</DetailsLevel>
-      <ObjectId>16844</ObjectId>
+      <ObjectId>16852</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>851</StateNumber>
+      <StateNumber>854</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="274" parent="272" name="users">
+    <sequence id="274" parent="272" name="libraries_id_seq">
       <DetailsLevel>2</DetailsLevel>
-      <ObjectId>16845</ObjectId>
-      <StateNumber>851</StateNumber>
+      <ObjectId>16868</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>856</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="275" parent="272" name="library_members_id_seq">
+      <DetailsLevel>2</DetailsLevel>
+      <ObjectId>16860</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>855</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <table id="276" parent="272" name="books">
+      <DetailsLevel>2</DetailsLevel>
+      <ObjectId>16853</ObjectId>
+      <StateNumber>857</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="275" parent="274" name="id">
-      <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
+    <table id="277" parent="272" name="libraries">
+      <DetailsLevel>2</DetailsLevel>
+      <ObjectId>16869</ObjectId>
+      <StateNumber>857</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="278" parent="272" name="library_members">
+      <DetailsLevel>2</DetailsLevel>
+      <ObjectId>16861</ObjectId>
+      <StateNumber>855</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="279" parent="276" name="id">
+      <DefaultExpression>nextval(&apos;books_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>851</StateNumber>
+      <StateNumber>854</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>16844</SequenceId>
+      <SequenceId>16852</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="276" parent="274" name="name">
+    <column id="280" parent="276" name="title">
       <Position>2</Position>
-      <StateNumber>851</StateNumber>
-      <StoredType>varchar(50)|0s</StoredType>
+      <StateNumber>854</StateNumber>
+      <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="277" parent="274" name="surname">
+    <column id="281" parent="276" name="author">
       <Position>3</Position>
-      <StateNumber>851</StateNumber>
+      <StateNumber>854</StateNumber>
+      <StoredType>varchar(100)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="282" parent="276" name="genre">
+      <Position>4</Position>
+      <StateNumber>854</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="278" parent="274" name="gender">
-      <Position>4</Position>
-      <StateNumber>851</StateNumber>
-      <StoredType>varchar(10)|0s</StoredType>
-      <TypeId>1043</TypeId>
+    <column id="283" parent="276" name="available">
+      <Position>5</Position>
+      <StateNumber>854</StateNumber>
+      <StoredType>boolean|0s</StoredType>
+      <TypeId>16</TypeId>
     </column>
-    <index id="279" parent="274" name="users_pkey">
+    <column id="284" parent="276" name="library_id">
+      <Position>6</Position>
+      <StateNumber>857</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="285" parent="276" name="fk_books_libraries">
+      <ColNames>library_id</ColNames>
+      <ObjectId>16876</ObjectId>
+      <StateNumber>857</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16869</RefTableId>
+    </foreign-key>
+    <index id="286" parent="276" name="books_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16850</ObjectId>
+      <ObjectId>16858</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>851</StateNumber>
+      <StateNumber>854</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="280" parent="274" name="users_pkey">
+    <key id="287" parent="276" name="books_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16851</ObjectId>
+      <ObjectId>16859</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>851</StateNumber>
-      <UnderlyingIndexId>16850</UnderlyingIndexId>
+      <StateNumber>854</StateNumber>
+      <UnderlyingIndexId>16858</UnderlyingIndexId>
+    </key>
+    <column id="288" parent="277" name="id">
+      <DefaultExpression>nextval(&apos;libraries_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>856</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <SequenceId>16868</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="289" parent="277" name="name">
+      <Position>2</Position>
+      <StateNumber>856</StateNumber>
+      <StoredType>varchar(100)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="290" parent="277" name="address">
+      <Position>3</Position>
+      <StateNumber>856</StateNumber>
+      <StoredType>varchar(150)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="291" parent="277" name="libraries_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16874</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>856</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="292" parent="277" name="libraries_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16875</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>856</StateNumber>
+      <UnderlyingIndexId>16874</UnderlyingIndexId>
+    </key>
+    <column id="293" parent="278" name="id">
+      <DefaultExpression>nextval(&apos;library_members_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>855</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <SequenceId>16860</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="294" parent="278" name="name">
+      <Position>2</Position>
+      <StateNumber>855</StateNumber>
+      <StoredType>varchar(100)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="295" parent="278" name="phone">
+      <Position>3</Position>
+      <StateNumber>855</StateNumber>
+      <StoredType>varchar(30)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="296" parent="278" name="member_id">
+      <Position>4</Position>
+      <StateNumber>855</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="297" parent="278" name="borrowed_books">
+      <Position>5</Position>
+      <StateNumber>855</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="298" parent="278" name="library_members_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16866</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>855</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="299" parent="278" name="library_members_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16867</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>855</StateNumber>
+      <UnderlyingIndexId>16866</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

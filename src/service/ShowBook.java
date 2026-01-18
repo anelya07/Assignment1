@@ -1,14 +1,40 @@
 package service;
 
+import data.DBConnection;
 import entity.Book;
 import entity.Library;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 public class ShowBook implements BookService {
+
     public void show(Library library) {
-        for (Book b : library.getBooks()) {
-            System.out.println(b.getTitle() + " | " + b.getAuthor() + " | " + b.getGenre());
+        library.getBooks().clear();
+
+        try (Connection conn = DBConnection.getConnection()) {
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM books");
+
+            while (rs.next()) {
+                Book book = new Book(
+                        rs.getString("title"),
+                        rs.getString("author"),
+                        rs.getString("genre")
+                );
+                book.setAvailable(rs.getBoolean("available"));
+                library.getBooks().add(book);
+            }
+
+            for (Book b : library.getBooks()) {
+                System.out.println(b);
+            }
+
+            process(true);
+        } catch (Exception e) {
+            System.out.println("DB error: " + e.getMessage());
         }
-        process(true);
     }
 
     @Override

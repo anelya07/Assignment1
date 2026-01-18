@@ -1,5 +1,9 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import data.DBConnection;
 import entity.*;
 import service.*;
 
@@ -13,10 +17,22 @@ public class MyApplication {
         this.library = library;
         this.member = member;
 
+        try (Connection conn = DBConnection.getConnection()) {
+            String sql = "INSERT INTO libraries(name, address) VALUES (?, ?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, library.getLibraryName());
+            ps.setString(2, library.getAddress());
+            ps.executeUpdate();
+        }
+        catch (Exception e) {
+            System.out.println("Library DB error: " + e.getMessage());
+        }
+
         AddBook addBook = new AddBook();
         addBook.add(library, new Book("Harry Potter", "J.K.Rowling", "Fantasy"));
         addBook.add(library, new Book("Sherlock Holmes", "Arthur Conan Doyle", "Detective"));
     }
+
 
     private void mainMenu() {
         System.out.println();
@@ -27,8 +43,7 @@ public class MyApplication {
         System.out.println("4. Find book by title");
         System.out.println("5. Filter books by genre");
         System.out.println("6. Reserve book");
-        System.out.println("7. Extend loan");
-        System.out.println("8. Exit");
+        System.out.println("7. Exit");
         System.out.print("Choose option: ");
     }
 
@@ -46,7 +61,6 @@ public class MyApplication {
                     case 4: findBookMenu(); break;
                     case 5: filterMenu(); break;
                     case 6: reserveMenu(); break;
-                    case 7: extendMenu(); break;
                     default: return;
                 }
             } catch (InputMismatchException e) {
@@ -122,11 +136,6 @@ public class MyApplication {
             Reserve service = new Reserve();
             service.reserve(book);
         }
-    }
-
-    private void extendMenu() {
-        Extend service = new Extend();
-        service.process(member.getBorrowedBooks() > 0);
     }
 }
 
