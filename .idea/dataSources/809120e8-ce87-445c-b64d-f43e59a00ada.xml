@@ -810,56 +810,56 @@ false Zulu
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
-    <role id="4" parent="1" name="pg_checkpoint">
-      <ObjectId>4544</ObjectId>
-    </role>
-    <role id="5" parent="1" name="pg_create_subscription">
-      <ObjectId>6304</ObjectId>
-    </role>
-    <role id="6" parent="1" name="pg_database_owner">
+    <role id="4" parent="1" name="pg_database_owner">
       <ObjectId>6171</ObjectId>
     </role>
-    <role id="7" parent="1" name="pg_execute_server_program">
-      <ObjectId>4571</ObjectId>
+    <role id="5" parent="1" name="pg_read_all_data">
+      <ObjectId>6181</ObjectId>
     </role>
-    <role id="8" parent="1" name="pg_maintain">
-      <ObjectId>6337</ObjectId>
+    <role id="6" parent="1" name="pg_write_all_data">
+      <ObjectId>6182</ObjectId>
     </role>
-    <role id="9" parent="1" name="pg_monitor">
+    <role id="7" parent="1" name="pg_monitor">
       <ObjectId>3373</ObjectId>
       <RoleGrants>3374
 3375
 3377</RoleGrants>
     </role>
-    <role id="10" parent="1" name="pg_read_all_data">
-      <ObjectId>6181</ObjectId>
-    </role>
-    <role id="11" parent="1" name="pg_read_all_settings">
+    <role id="8" parent="1" name="pg_read_all_settings">
       <ObjectId>3374</ObjectId>
     </role>
-    <role id="12" parent="1" name="pg_read_all_stats">
+    <role id="9" parent="1" name="pg_read_all_stats">
       <ObjectId>3375</ObjectId>
     </role>
-    <role id="13" parent="1" name="pg_read_server_files">
+    <role id="10" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+    </role>
+    <role id="11" parent="1" name="pg_read_server_files">
       <ObjectId>4569</ObjectId>
     </role>
-    <role id="14" parent="1" name="pg_signal_autovacuum_worker">
-      <ObjectId>6392</ObjectId>
+    <role id="12" parent="1" name="pg_write_server_files">
+      <ObjectId>4570</ObjectId>
     </role>
-    <role id="15" parent="1" name="pg_signal_backend">
+    <role id="13" parent="1" name="pg_execute_server_program">
+      <ObjectId>4571</ObjectId>
+    </role>
+    <role id="14" parent="1" name="pg_signal_backend">
       <ObjectId>4200</ObjectId>
     </role>
-    <role id="16" parent="1" name="pg_stat_scan_tables">
-      <ObjectId>3377</ObjectId>
+    <role id="15" parent="1" name="pg_checkpoint">
+      <ObjectId>4544</ObjectId>
+    </role>
+    <role id="16" parent="1" name="pg_maintain">
+      <ObjectId>6337</ObjectId>
     </role>
     <role id="17" parent="1" name="pg_use_reserved_connections">
       <ObjectId>4550</ObjectId>
     </role>
-    <role id="18" parent="1" name="pg_write_all_data">
-      <ObjectId>6182</ObjectId>
+    <role id="18" parent="1" name="pg_create_subscription">
+      <ObjectId>6304</ObjectId>
     </role>
-    <role id="19" parent="1" name="pg_write_server_files">
-      <ObjectId>4570</ObjectId>
+    <role id="19" parent="1" name="pg_signal_autovacuum_worker">
+      <ObjectId>6392</ObjectId>
     </role>
     <role id="20" parent="1" name="postgres">
       <BypassRls>1</BypassRls>
@@ -4361,7 +4361,7 @@ false Zulu
     <table id="276" parent="272" name="books">
       <DetailsLevel>2</DetailsLevel>
       <ObjectId>16853</ObjectId>
-      <StateNumber>857</StateNumber>
+      <StateNumber>1070</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4412,36 +4412,23 @@ false Zulu
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="284" parent="276" name="library_id">
-      <Position>6</Position>
-      <StateNumber>857</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <TypeId>23</TypeId>
-    </column>
-    <foreign-key id="285" parent="276" name="fk_books_libraries">
-      <ColNames>library_id</ColNames>
-      <ObjectId>16876</ObjectId>
-      <StateNumber>857</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16869</RefTableId>
-    </foreign-key>
-    <index id="286" parent="276" name="books_pkey">
+    <index id="284" parent="276" name="books_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16858</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>854</StateNumber>
+      <StateNumber>1070</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="287" parent="276" name="books_pkey">
+    <key id="285" parent="276" name="books_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16859</ObjectId>
       <Primary>1</Primary>
       <StateNumber>854</StateNumber>
       <UnderlyingIndexId>16858</UnderlyingIndexId>
     </key>
-    <column id="288" parent="277" name="id">
+    <column id="286" parent="277" name="id">
       <DefaultExpression>nextval(&apos;libraries_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4450,19 +4437,19 @@ false Zulu
       <SequenceId>16868</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="289" parent="277" name="name">
+    <column id="287" parent="277" name="name">
       <Position>2</Position>
       <StateNumber>856</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="290" parent="277" name="address">
+    <column id="288" parent="277" name="address">
       <Position>3</Position>
       <StateNumber>856</StateNumber>
       <StoredType>varchar(150)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="291" parent="277" name="libraries_pkey">
+    <index id="289" parent="277" name="libraries_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16874</ObjectId>
@@ -4471,14 +4458,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="292" parent="277" name="libraries_pkey">
+    <key id="290" parent="277" name="libraries_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16875</ObjectId>
       <Primary>1</Primary>
       <StateNumber>856</StateNumber>
       <UnderlyingIndexId>16874</UnderlyingIndexId>
     </key>
-    <column id="293" parent="278" name="id">
+    <column id="291" parent="278" name="id">
       <DefaultExpression>nextval(&apos;library_members_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4487,31 +4474,31 @@ false Zulu
       <SequenceId>16860</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="294" parent="278" name="name">
+    <column id="292" parent="278" name="name">
       <Position>2</Position>
       <StateNumber>855</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="295" parent="278" name="phone">
+    <column id="293" parent="278" name="phone">
       <Position>3</Position>
       <StateNumber>855</StateNumber>
       <StoredType>varchar(30)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="296" parent="278" name="member_id">
+    <column id="294" parent="278" name="member_id">
       <Position>4</Position>
       <StateNumber>855</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="297" parent="278" name="borrowed_books">
+    <column id="295" parent="278" name="borrowed_books">
       <Position>5</Position>
       <StateNumber>855</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <index id="298" parent="278" name="library_members_pkey">
+    <index id="296" parent="278" name="library_members_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16866</ObjectId>
@@ -4520,7 +4507,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="299" parent="278" name="library_members_pkey">
+    <key id="297" parent="278" name="library_members_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16867</ObjectId>
       <Primary>1</Primary>

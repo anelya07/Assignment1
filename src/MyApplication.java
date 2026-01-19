@@ -28,9 +28,6 @@ public class MyApplication {
             System.out.println("Library DB error: " + e.getMessage());
         }
 
-        AddBook addBook = new AddBook();
-        addBook.add(library, new Book("Harry Potter", "J.K.Rowling", "Fantasy"));
-        addBook.add(library, new Book("Sherlock Holmes", "Arthur Conan Doyle", "Detective"));
     }
 
 
@@ -122,7 +119,6 @@ public class MyApplication {
 
         FilterBook service = new FilterBook();
         service.filterByGenre(library, genre);
-        System.out.println("Books sorted.");
     }
 
     private void reserveMenu() {
