@@ -5,8 +5,8 @@ import entity.Book;
 import entity.Library;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class ShowBook implements BookService {
 
@@ -14,8 +14,10 @@ public class ShowBook implements BookService {
         library.getBooks().clear();
 
         try (Connection conn = DBConnection.getConnection()) {
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM books");
+            String sql = "SELECT * FROM books";
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Book book = new Book(

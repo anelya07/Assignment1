@@ -30,7 +30,6 @@ public class MyApplication {
 
     }
 
-
     private void mainMenu() {
         System.out.println();
         System.out.println("--- Library Management System ---");
